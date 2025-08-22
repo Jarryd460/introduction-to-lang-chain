@@ -110,6 +110,12 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Building chains with `RunnableSequence`
 - Manual handling of prompt formatting and output parsing
 
+### Extended Chain Operations (`3_chains/3_chains_extended.py`)
+- Creating custom chain operations with type hints
+- Chaining multiple transformations
+- String manipulation within chains
+- Type-safe operations with `Runnable` and `RunnableLambda`
+
 ### Running Examples
 
 You can run any of the examples using either method:
@@ -202,7 +208,8 @@ introduction-to-lang-chain/
 │   └── 2_prompt_template_with_chat_model.py # Templates with chat model integration
 ├── 3_chains/                    # Directory containing chain examples
 │   ├── 1_chains_basics.py                # Basic chain implementation with pipe operator
-│   └── 2_chains_under_the_hood.py         # Detailed chain implementation showing internals
+│   ├── 2_chains_under_the_hood.py         # Detailed chain implementation showing internals
+│   └── 3_chains_extended.py              # Advanced chain operations with type hints
 ├── .env                        # Environment variables (create this file)
 ├── .env.example                # Example environment variables template
 ├── poetry.lock                 # Poetry lock file (auto-generated)
