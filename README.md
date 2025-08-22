@@ -122,6 +122,12 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Error handling in parallel chain execution
 - Performance considerations for concurrent operations
 
+### 5. Branching Chains (`3_chains/5_chains_branching.py`)
+- Implementing conditional logic in chains with `RunnableBranch`
+- Creating dynamic workflows based on input classification
+- Handling different response templates based on feedback sentiment
+- Example: Feedback classification and response generation pipeline
+
 ### Running Examples
 
 You can run any of the examples using either method:
@@ -216,7 +222,8 @@ introduction-to-lang-chain/
 │   ├── 1_chains_basics.py                # Basic chain implementation with pipe operator
 │   ├── 2_chains_under_the_hood.py         # Detailed chain implementation showing internals
 │   ├── 3_chains_extended.py              # Advanced chain operations with type hints
-│   └── 4_chains_parallel.py              # Running multiple chains in parallel
+│   ├── 4_chains_parallel.py              # Running multiple chains in parallel
+│   └── 5_chains_branching.py             # Conditional logic with branching chains
 ├── .env                        # Environment variables (create this file)
 ├── .env.example                # Example environment variables template
 ├── poetry.lock                 # Poetry lock file (auto-generated)
