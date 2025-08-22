@@ -16,6 +16,7 @@ prompt_template = ChatPromptTemplate.from_messages(
     ]
 )
 
+# using pipping automatically calls invoke on the prompt_template, llm and StrOutputParser when the chain is invoked 
 chains = prompt_template | llm | StrOutputParser()
 
 result = chains.invoke({"topic": "lawyers", "joke_count": 3})

@@ -104,6 +104,12 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Building reusable processing pipelines
 - Example: Creating a joke generation chain with template and model
 
+### Understanding Chains (`3_chains/2_chains_under_the_hood.py`)
+- Demonstrates the underlying mechanics of chains
+- Using `RunnableLambda` for custom operations
+- Building chains with `RunnableSequence`
+- Manual handling of prompt formatting and output parsing
+
 ### Running Examples
 
 You can run any of the examples using either method:
@@ -195,7 +201,8 @@ introduction-to-lang-chain/
 │   ├── 1_prompt_template_basic.py         # Basic prompt template usage
 │   └── 2_prompt_template_with_chat_model.py # Templates with chat model integration
 ├── 3_chains/                    # Directory containing chain examples
-│   └── 1_chains_basics.py                # Basic chain implementation with pipe operator
+│   ├── 1_chains_basics.py                # Basic chain implementation with pipe operator
+│   └── 2_chains_under_the_hood.py         # Detailed chain implementation showing internals
 ├── .env                        # Environment variables (create this file)
 ├── .env.example                # Example environment variables template
 ├── poetry.lock                 # Poetry lock file (auto-generated)
