@@ -116,6 +116,12 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - String manipulation within chains
 - Type-safe operations with `Runnable` and `RunnableLambda`
 
+### 4. Parallel Chains (`3_chains/4_chains_parallel.py`)
+- Running multiple chains in parallel
+- Combining results from multiple chains
+- Error handling in parallel chain execution
+- Performance considerations for concurrent operations
+
 ### Running Examples
 
 You can run any of the examples using either method:
@@ -209,7 +215,8 @@ introduction-to-lang-chain/
 ├── 3_chains/                    # Directory containing chain examples
 │   ├── 1_chains_basics.py                # Basic chain implementation with pipe operator
 │   ├── 2_chains_under_the_hood.py         # Detailed chain implementation showing internals
-│   └── 3_chains_extended.py              # Advanced chain operations with type hints
+│   ├── 3_chains_extended.py              # Advanced chain operations with type hints
+│   └── 4_chains_parallel.py              # Running multiple chains in parallel
 ├── .env                        # Environment variables (create this file)
 ├── .env.example                # Example environment variables template
 ├── poetry.lock                 # Poetry lock file (auto-generated)
