@@ -16,6 +16,7 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Environment variable management with python-dotenv
 - Poetry for dependency management
 - Multiple example scripts demonstrating different chat model capabilities
+- Prompt template examples for structured LLM interactions
 
 ## 📦 Prerequisites
 
@@ -81,6 +82,18 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 4. **Interactive Conversation** (`4_chat_model_conversation_with_user.py`)
    - Implements an interactive chat interface
    - Shows how to handle user input and model responses
+
+## 🎯 Prompt Templates
+
+### Basic Prompt Templates (`2_prompt_templates/1_prompt_template_basic.py`)
+- Creating simple prompt templates with placeholders
+- Working with multiple placeholders in templates
+- Building prompts with system and human message templates
+
+### Chat Model Integration (`2_prompt_templates/2_prompt_template_with_chat_model.py`)
+- Integrating prompt templates with chat models
+- Creating dynamic prompts with variables
+- Building complex conversation flows with system and user messages
 
 ### Running Examples
 
@@ -169,6 +182,9 @@ introduction-to-lang-chain/
 │   ├── 2_chat_model_basic_conversation.py # Demonstrates conversation history
 │   ├── 3_chat_model_alternatives.py       # Shows different model configurations
 │   └── 4_chat_model_conversation_with_user.py  # Interactive chat interface
+├── 2_prompt_templates/          # Directory containing prompt template examples
+│   ├── 1_prompt_template_basic.py         # Basic prompt template usage
+│   └── 2_prompt_template_with_chat_model.py # Templates with chat model integration
 ├── .env                        # Environment variables (create this file)
 ├── .env.example                # Example environment variables template
 ├── poetry.lock                 # Poetry lock file (auto-generated)
