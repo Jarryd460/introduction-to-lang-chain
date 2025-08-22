@@ -17,6 +17,7 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Poetry for dependency management
 - Multiple example scripts demonstrating different chat model capabilities
 - Prompt template examples for structured LLM interactions
+- Chain implementations for complex LLM workflows
 
 ## 📦 Prerequisites
 
@@ -94,6 +95,14 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Integrating prompt templates with chat models
 - Creating dynamic prompts with variables
 - Building complex conversation flows with system and user messages
+
+## ⛓️ Chains
+
+### Basic Chains (`3_chains/1_chains_basics.py`)
+- Creating sequential chains with the pipe operator (`|`)
+- Combining prompt templates with LLMs and output parsers
+- Building reusable processing pipelines
+- Example: Creating a joke generation chain with template and model
 
 ### Running Examples
 
@@ -185,6 +194,8 @@ introduction-to-lang-chain/
 ├── 2_prompt_templates/          # Directory containing prompt template examples
 │   ├── 1_prompt_template_basic.py         # Basic prompt template usage
 │   └── 2_prompt_template_with_chat_model.py # Templates with chat model integration
+├── 3_chains/                    # Directory containing chain examples
+│   └── 1_chains_basics.py                # Basic chain implementation with pipe operator
 ├── .env                        # Environment variables (create this file)
 ├── .env.example                # Example environment variables template
 ├── poetry.lock                 # Poetry lock file (auto-generated)
