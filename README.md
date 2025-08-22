@@ -1,6 +1,13 @@
 # Introduction to LangChain
 
-This repository serves as an introduction to working with LangChain, specifically focusing on chat models using Ollama's LLaMA models. It includes various examples demonstrating different aspects of chat model interactions.
+This repository serves as a comprehensive introduction to working with LangChain's chat models, featuring multiple model providers and interaction patterns. It includes practical examples demonstrating various aspects of chat model integration, from basic usage to advanced conversation handling.
+
+The examples support multiple model providers including:
+- **Ollama** (local LLMs)
+- **Anthropic** (Claude models)
+- **Hugging Face** (hosted models)
+
+Each example is designed to be self-contained and demonstrates a specific aspect of working with LangChain's chat model interface.
 
 ## 🚀 Features
 
