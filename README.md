@@ -1,6 +1,6 @@
 # Introduction to LangChain
 
-This repository serves as an introduction to working with LangChain, specifically focusing on chat models using Ollama's LLaMA models.
+This repository serves as an introduction to working with LangChain, specifically focusing on chat models using Ollama's LLaMA models. It includes various examples demonstrating different aspects of chat model interactions.
 
 ## 🚀 Features
 
@@ -8,6 +8,7 @@ This repository serves as an introduction to working with LangChain, specificall
 - Integration with Ollama's LLaMA models
 - Environment variable management with python-dotenv
 - Poetry for dependency management
+- Multiple example scripts demonstrating different chat model capabilities
 
 ## 📦 Prerequisites
 
@@ -56,21 +57,42 @@ This repository serves as an introduction to working with LangChain, specificall
 
 ## 🚀 Usage
 
-Run the example script:
+### Available Examples
 
-If you have activated the environment, you can run the script directly:
+1. **Basic Chat Model** (`1_chat_model_basics.py`)
+   - Simple demonstration of initializing and using a chat model
+   - Shows basic message passing to the model
 
+2. **Basic Conversation** (`2_chat_model_basic_conversation.py`)
+   - Demonstrates maintaining conversation history
+   - Shows how to build a back-and-forth conversation
+
+3. **Model Alternatives** (`3_chat_model_alternatives.py`)
+   - Demonstrates using different model configurations
+   - Shows how to compare outputs from different models
+
+4. **Interactive Conversation** (`4_chat_model_conversation_with_user.py`)
+   - Implements an interactive chat interface
+   - Shows how to handle user input and model responses
+
+### Running Examples
+
+You can run any of the examples using either method:
+
+**With activated environment:**
 ```bash
 python 1_chat_models/1_chat_model_basics.py
 ```
 
-If you have not activated the environment, you can run the script using poetry:
-
+**Using Poetry:**
 ```bash
 poetry run python 1_chat_models/1_chat_model_basics.py
 ```
 
-This will execute a basic chat completion using the LLaMA model through Ollama.
+For the interactive conversation example, use:
+```bash
+python 1_chat_models/4_chat_model_conversation_with_user.py
+```
 
 ## 🔧 Useful Commands
 
@@ -92,7 +114,7 @@ This will execute a basic chat completion using the LLaMA model through Ollama.
   poetry config virtualenvs.in-project true --local
   ```
 
-or
+  or
 
 - Configures it globally (Applies to all projects). Creates config.toml file in %APPDATA%\pypoetry
   ```bash
@@ -135,15 +157,33 @@ or
 
 ```
 introduction-to-lang-chain/
-├── 1_chat_models/
-│   └── 1_chat_model_basics.py  # Basic chat model implementation
+├── 1_chat_models/               # Directory containing chat model examples
+│   ├── 1_chat_model_basics.py            # Basic chat model initialization and usage
+│   ├── 2_chat_model_basic_conversation.py # Demonstrates conversation history
+│   ├── 3_chat_model_alternatives.py       # Shows different model configurations
+│   └── 4_chat_model_conversation_with_user.py  # Interactive chat interface
 ├── .env                        # Environment variables (create this file)
-├── poetry.lock                 # Poetry lock file
-└── pyproject.toml              # Project dependencies and metadata
+├── .env.example                # Example environment variables template
+├── poetry.lock                 # Poetry lock file (auto-generated)
+├── poetry.toml                 # Poetry configuration
+├── pyproject.toml              # Project metadata and dependencies
+└── README.md                   # This documentation file
 ```
+
+Each Python file in the `1_chat_models/` directory demonstrates a different aspect of working with LangChain's chat models, progressing from basic to more advanced usage patterns.
 
 ## 📚 Dependencies
 
-- langchain (>=0.3.27,<0.4.0)
-- python-dotenv (>=1.1.1,<2.0.0)
-- langchain-ollama (>=0.3.6,<0.4.0)
+### Core Dependencies
+- `langchain` (>=0.3.27,<0.4.0) - Core framework for building LLM applications
+- `langchain-ollama` (>=0.3.6,<0.4.0) - Ollama integration for LangChain
+- `python-dotenv` (>=1.1.1,<2.0.0) - Loads environment variables from .env files
+
+### Version Management
+- `poetry` - Dependency management and packaging
+
+### Environment Variables
+The following environment variables are used in the examples:
+- `OLLAMA_API_BASE`: Base URL for the Ollama API (default: http://localhost:11434)
+- `ANTHROPIC_API_KEY`: Api key needed for accessing Claude models
+- `HUGGINGFACEHUB_API_TOKEN`: Token for accessing models on hugging face
