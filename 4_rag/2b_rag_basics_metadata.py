@@ -2,13 +2,21 @@ import os
 
 from langchain_community.vectorstores import Chroma
 from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 db_dir = os.path.join(current_dir, "db")
 persistent_directory = os.path.join(db_dir, "chroma_db_with_metadata")
 
-embeddings = OllamaEmbeddings(
-    model="llama3.1"
+# embeddings = OllamaEmbeddings(
+#     model="llama3.1"
+# )
+
+model_name = "BAAI/bge-small-en"
+model_kwargs = {"device": "cpu"}
+encode_kwargs = {"normalize_embeddings": True}
+embeddings = HuggingFaceEmbeddings(
+    model_name=model_name, model_kwargs=model_kwargs, encode_kwargs=encode_kwargs
 )
 
 db = Chroma(

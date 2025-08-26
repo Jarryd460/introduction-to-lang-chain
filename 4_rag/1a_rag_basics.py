@@ -3,6 +3,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import Chroma
 from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_dir, "books", "odyssey.txt")
@@ -30,13 +31,27 @@ if not os.path.exists(persistent_directory):
     print(f"Sample chunk:\n{docs[0].page_content}\n")
 
     print("\n--- Creating embeddings ---")
-    embeddings = OllamaEmbeddings(
-        model="llama3.1"
+    # embeddings = OllamaEmbeddings(
+    #     model="llama3.1"
+    # )
+    
+    # Requires sentence_transformers to be installed. poetry add sentence-transformers
+    # Does not seem to be very accurate
+    # embeddings = HuggingFaceEmbeddings(
+    #     model="sentence-transformers/all-MiniLM-L6-v2"
+    # )
+
+    model_name = "BAAI/bge-small-en"
+    model_kwargs = {"device": "cpu"}
+    encode_kwargs = {"normalize_embeddings": True}
+    embeddings = HuggingFaceEmbeddings(
+        model_name=model_name, model_kwargs=model_kwargs, encode_kwargs=encode_kwargs
     )
     print("\n--- Finished creating embeddings ---")
 
     print("\n--- Creating vector store ---")
-    # Takes a long time as we using the local llama model for embeddings (2 hours I think). Using Claude or OpenAI whould probably go much faster
+    # Takes a long time with the local llama model for embeddings (2 hours I think). Using Hugging Face Embedding model goes much quicker.
+    # Claude or OpenAI whould probably go much faster
     db = Chroma.from_documents(
         docs,
         embeddings,

@@ -23,8 +23,11 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 
 - Python 3.13+
 - [Poetry](https://python-poetry.org/) for dependency management
-- [Ollama](https://ollama.com/) installed and running locally
-- Ollama LLaMA model downloaded (e.g., `llama3.1`)
+- [Ollama](https://ollama.com/) installed and running locally (optional, for local embeddings)
+- Ollama LLaMA model downloaded (e.g., `llama3.1`) (optional)
+- For Hugging Face embeddings:
+  - Install `sentence-transformers`: `poetry add sentence-transformers`
+  - Recommended model: `BAAI/bge-small-en` (automatically downloaded on first use)
 
 ## 🛠️ Setup
 
@@ -103,6 +106,9 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Loading and processing text documents
 - Creating and persisting vector stores
 - Performing similarity searches with embeddings
+  - Supports both Ollama and Hugging Face embeddings
+  - Default configuration uses `BAAI/bge-small-en` for better performance
+  - Configurable model parameters including device and normalization
 - Integrating with LLMs for question answering
 
 ### RAG with Metadata (`4_rag/2a_rag_basics_metadata.py` and `4_rag/2b_rag_basics_metadata.py`)

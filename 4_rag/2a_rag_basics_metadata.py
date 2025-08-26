@@ -4,6 +4,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 books_dir = os.path.join(current_dir, "books")
@@ -43,8 +44,15 @@ if not os.path.exists(persistent_directory):
     print(f"Number of document chunks: {len(docs)}")
 
     print("\n--- Creating embeddings ---")
-    embeddings = OllamaEmbeddings(
-        model ="llama3.1"
+    # embeddings = OllamaEmbeddings(
+    #     model ="llama3.1"
+    # )
+
+    model_name = "BAAI/bge-small-en"
+    model_kwargs = {"device": "cpu"}
+    encode_kwargs = {"normalize_embeddings": True}
+    embeddings = HuggingFaceEmbeddings(
+        model_name=model_name, model_kwargs=model_kwargs, encode_kwargs=encode_kwargs
     )
     print("\n--- Finished creating embeddings ---")
 
