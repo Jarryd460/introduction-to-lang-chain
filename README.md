@@ -117,6 +117,16 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Managing document sources and references
 - Advanced retrieval techniques
 
+### Text Splitting Deep Dive (`4_rag/3_rag_text_splitting_deep_dive.py`)
+- Comparing different text splitting strategies:
+  - Character-based splitting
+  - Sentence-based splitting
+  - Recursive character-based splitting
+  - Custom paragraph-based splitting
+- Evaluating chunk sizes and overlaps
+- Creating and querying multiple vector stores
+- Analyzing the impact of splitting on retrieval quality
+
 ## ⛓️ Chains
 
 ### Basic Chains (`3_chains/1_chains_basics.py`)
@@ -250,6 +260,7 @@ introduction-to-lang-chain/
 │   ├── 1b_rag_basics.py                  # Querying the basic RAG system
 │   ├── 2a_rag_basics_metadata.py         # RAG with metadata support
 │   ├── 2b_rag_basics_metadata.py         # Querying RAG with metadata filters
+│   ├── 3_rag_text_splitting_deep_dive.py # Comparing text splitting strategies
 │   ├── books/                            # Sample text documents for RAG
 │   └── db/                               # Vector store database directory
 ├── .env                        # Environment variables (create this file)
