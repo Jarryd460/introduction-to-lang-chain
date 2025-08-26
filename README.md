@@ -127,6 +127,16 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Creating and querying multiple vector stores
 - Analyzing the impact of splitting on retrieval quality
 
+### Embedding Deep Dive (`4_rag/4_rag_embedding_deep_dive.py`)
+- Exploring different embedding models and configurations
+- Implementing Hugging Face embeddings with custom parameters
+- Comparing embedding performance and quality
+- Configuring model parameters for optimal results
+  - Device selection (CPU/GPU)
+  - Embedding normalization
+  - Batch processing options
+- Querying and evaluating embedding results
+
 ## ⛓️ Chains
 
 ### Basic Chains (`3_chains/1_chains_basics.py`)
@@ -261,6 +271,7 @@ introduction-to-lang-chain/
 │   ├── 2a_rag_basics_metadata.py         # RAG with metadata support
 │   ├── 2b_rag_basics_metadata.py         # Querying RAG with metadata filters
 │   ├── 3_rag_text_splitting_deep_dive.py # Comparing text splitting strategies
+│   ├── 4_rag_embedding_deep_dive.py      # Exploring embedding models and configs
 │   ├── books/                            # Sample text documents for RAG
 │   └── db/                               # Vector store database directory
 ├── .env                        # Environment variables (create this file)

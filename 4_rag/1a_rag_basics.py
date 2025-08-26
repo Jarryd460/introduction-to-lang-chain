@@ -38,7 +38,7 @@ if not os.path.exists(persistent_directory):
     # Requires sentence_transformers to be installed. poetry add sentence-transformers
     # Does not seem to be very accurate
     # embeddings = HuggingFaceEmbeddings(
-    #     model="sentence-transformers/all-MiniLM-L6-v2"
+    #     model_name="sentence-transformers/all-MiniLM-L6-v2"
     # )
 
     model_name = "BAAI/bge-small-en"
