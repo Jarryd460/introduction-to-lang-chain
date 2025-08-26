@@ -96,6 +96,21 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Creating dynamic prompts with variables
 - Building complex conversation flows with system and user messages
 
+## 🔍 RAG (Retrieval-Augmented Generation)
+
+### Basic RAG Implementation (`4_rag/1a_rag_basics.py` and `4_rag/1b_rag_basics.py`)
+- Setting up a basic RAG pipeline with ChromaDB
+- Loading and processing text documents
+- Creating and persisting vector stores
+- Performing similarity searches with embeddings
+- Integrating with LLMs for question answering
+
+### RAG with Metadata (`4_rag/2a_rag_basics_metadata.py` and `4_rag/2b_rag_basics_metadata.py`)
+- Enhancing documents with metadata
+- Filtering search results using metadata
+- Managing document sources and references
+- Advanced retrieval techniques
+
 ## ⛓️ Chains
 
 ### Basic Chains (`3_chains/1_chains_basics.py`)
@@ -224,6 +239,13 @@ introduction-to-lang-chain/
 │   ├── 3_chains_extended.py              # Advanced chain operations with type hints
 │   ├── 4_chains_parallel.py              # Running multiple chains in parallel
 │   └── 5_chains_branching.py             # Conditional logic with branching chains
+├── 4_rag/                        # Directory containing RAG examples
+│   ├── 1a_rag_basics.py                  # Basic RAG implementation setup
+│   ├── 1b_rag_basics.py                  # Querying the basic RAG system
+│   ├── 2a_rag_basics_metadata.py         # RAG with metadata support
+│   ├── 2b_rag_basics_metadata.py         # Querying RAG with metadata filters
+│   ├── books/                            # Sample text documents for RAG
+│   └── db/                               # Vector store database directory
 ├── .env                        # Environment variables (create this file)
 ├── .env.example                # Example environment variables template
 ├── poetry.lock                 # Poetry lock file (auto-generated)
