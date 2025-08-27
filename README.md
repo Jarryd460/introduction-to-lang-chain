@@ -161,6 +161,17 @@ Each example is designed to be self-contained and demonstrates a specific aspect
   - Sampling behavior
   - Repetition penalty
 
+### Conversational RAG (`4_rag/7_rag_conversational.py`)
+- Implementing a multi-turn conversational RAG system
+- Maintaining chat history for context-aware responses
+- Using history-aware retrieval with contextualized prompts
+- Configuring conversation chains with LangChain's building blocks:
+  - History-aware retriever
+  - Document processing chain
+  - Chat prompt templates
+- Managing conversation state and message history
+- Customizing system prompts for better conversation flow
+
 ## ⛓️ Chains
 
 ### Basic Chains (`3_chains/1_chains_basics.py`)
@@ -298,6 +309,7 @@ introduction-to-lang-chain/
 │   ├── 4_rag_embedding_deep_dive.py      # Exploring embedding models and configs
 │   ├── 5_rag_retriever_deep_dive.py     # Comparing retrieval strategies
 │   ├── 6_rag_one_off_question.py        # Complete Q&A pipeline example
+│   ├── 7_rag_conversational.py          # Multi-turn conversational RAG system
 │   ├── books/                            # Sample text documents for RAG
 │   └── db/                               # Vector store database directory
 ├── .env                        # Environment variables (create this file)
