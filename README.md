@@ -69,23 +69,32 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 
 ## 🚀 Usage
 
-### Available Examples
+### Available Chat Model Examples
 
 1. **Basic Chat Model** (`1_chat_model_basics.py`)
-   - Simple demonstration of initializing and using a chat model
-   - Shows basic message passing to the model
+   - Initialize and use a chat model with Ollama
+   - Basic message passing and response handling
+   - Example: Simple math problem solving
 
 2. **Basic Conversation** (`2_chat_model_basic_conversation.py`)
-   - Demonstrates maintaining conversation history
-   - Shows how to build a back-and-forth conversation
+   - Maintain conversation history with multiple turns
+   - Structure messages with system and human roles
+   - Build context-aware conversations
+   - Example: Multi-turn math problem solving
 
 3. **Model Alternatives** (`3_chat_model_alternatives.py`)
-   - Demonstrates using different model configurations
-   - Shows how to compare outputs from different models
+   - Compare different LLM providers:
+     - Ollama (local models)
+     - Anthropic (Claude models)
+     - Hugging Face (hosted models)
+   - Configure different model parameters
+   - Handle different response formats
 
 4. **Interactive Conversation** (`4_chat_model_conversation_with_user.py`)
-   - Implements an interactive chat interface
-   - Shows how to handle user input and model responses
+   - Implement an interactive chat interface
+   - Manage conversation state and history
+   - Handle user input and model responses
+   - Example: Interactive AI assistant with memory
 
 ## 🎯 Prompt Templates
 
