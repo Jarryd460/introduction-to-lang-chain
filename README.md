@@ -150,6 +150,17 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Comparing retrieval quality across different methods
 - Practical examples of when to use each retrieval type
 
+### One-off Question Answering (`4_rag/6_rag_one_off_question.py`)
+- Implementing a complete Q&A pipeline
+- Combining retrieval with LLM generation
+- Using HuggingFace's DeepSeek model for response generation
+- Structuring system and human messages for better responses
+- Handling cases where information is not found
+- Configuring model parameters for optimal performance:
+  - Token limits
+  - Sampling behavior
+  - Repetition penalty
+
 ## ⛓️ Chains
 
 ### Basic Chains (`3_chains/1_chains_basics.py`)
@@ -286,6 +297,7 @@ introduction-to-lang-chain/
 │   ├── 3_rag_text_splitting_deep_dive.py # Comparing text splitting strategies
 │   ├── 4_rag_embedding_deep_dive.py      # Exploring embedding models and configs
 │   ├── 5_rag_retriever_deep_dive.py     # Comparing retrieval strategies
+│   ├── 6_rag_one_off_question.py        # Complete Q&A pipeline example
 │   ├── books/                            # Sample text documents for RAG
 │   └── db/                               # Vector store database directory
 ├── .env                        # Environment variables (create this file)
