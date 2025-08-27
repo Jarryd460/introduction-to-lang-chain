@@ -335,6 +335,10 @@ python 1_chat_models/4_chat_model_conversation_with_user.py
   ollama run model-name
   ```
 
+## 📚 Additional Resources
+
+- [LangChain Crash Course](https://github.com/bhancockio/langchain-crash-course/tree/main/4_rag) - A comprehensive crash course on LangChain's RAG (Retrieval-Augmented Generation) implementation, including practical examples and best practices.
+
 ## 📁 Project Structure
 
 ```
