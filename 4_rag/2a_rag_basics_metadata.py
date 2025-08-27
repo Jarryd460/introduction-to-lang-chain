@@ -6,6 +6,7 @@ from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
+# Define the directory containing the text files and the persistent directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 books_dir = os.path.join(current_dir, "books")
 db_dir = os.path.join(current_dir, "db")
@@ -14,16 +15,20 @@ persistent_directory = os.path.join(db_dir, "chroma_db_with_metadata")
 print(f"Books directory: {books_dir}")
 print(f"Persistent directory: {persistent_directory}")
 
+# Check if the Chroma vector store already exists
 if not os.path.exists(persistent_directory):
     print("Persistent directory does not exist. Initializing vector store...")
 
+    # Ensure the books directory exists
     if not os.path.exists(books_dir):
         raise FileNotFoundError(
             f"The directory {books_dir} does not exist. Please check the path."
         )
 
+    # List all text files in the directory
     book_files = [f for f in os.listdir(books_dir) if f.endswith(".txt")]
 
+     # Read the text content from each file and store it with metadata
     documents = []
     for book_file in book_files:
         file_path = os.path.join(books_dir, book_file)
@@ -34,20 +39,23 @@ if not os.path.exists(persistent_directory):
             doc.metadata = {"source": book_file}
             documents.append(doc)
 
+    # Split the documents into chunks
     text_splitter = CharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=0
     )
     docs = text_splitter.split_documents(documents)
 
+    # Display information about the split documents
     print("\n--- Document Chunks Information ---")
     print(f"Number of document chunks: {len(docs)}")
-
+    
     print("\n--- Creating embeddings ---")
     # embeddings = OllamaEmbeddings(
     #     model ="llama3.1"
     # )
 
+    # Create embeddings using Hugging Face BGE model
     model_name = "BAAI/bge-small-en"
     model_kwargs = {"device": "cpu"}
     encode_kwargs = {"normalize_embeddings": True}
@@ -57,6 +65,7 @@ if not os.path.exists(persistent_directory):
     print("\n--- Finished creating embeddings ---")
 
     print("\n--- Creating and persisting vector store ---")
+    # Create the vector store and persist it
     # Takes way to long to generate using llama. It ran overnight and was still not complete by the morning
     db = Chroma.from_documents(
         docs,

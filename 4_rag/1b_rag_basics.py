@@ -4,6 +4,7 @@ from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
+# Define the persistent directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 persistent_directory = os.path.join(current_dir, "db", "chroma_db")
 
@@ -15,6 +16,7 @@ persistent_directory = os.path.join(current_dir, "db", "chroma_db")
 #     model="sentence-transformers/all-MiniLM-L6-v2"
 # )
 
+# Create embeddings using Hugging Face BGE model
 model_name = "BAAI/bge-small-en"
 model_kwargs = {"device": "cpu"}
 encode_kwargs = {"normalize_embeddings": True}
@@ -22,13 +24,16 @@ embeddings = HuggingFaceEmbeddings(
     model_name=model_name, model_kwargs=model_kwargs, encode_kwargs=encode_kwargs
 )
 
+# Load the existing vector store with the embedding function
 db = Chroma(
     persist_directory=persistent_directory,
     embedding_function=embeddings
 )
 
+# Define the user's question
 query = "Who is Odysseus' wife?"
 
+# Retrieve relevant documents based on the query
 retriever = db.as_retriever(
     search_type="similarity_score_threshold",
     search_kwargs={
@@ -38,6 +43,7 @@ retriever = db.as_retriever(
 )
 relevant_docs = retriever.invoke(query)
 
+# Display the relevant results with metadata
 print("\n--- Relevant Documents ---")
 for i, doc in enumerate(relevant_docs, 1):
     print(f"Document {i}:\n{doc.page_content}\n")

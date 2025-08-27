@@ -5,27 +5,33 @@ from langchain_community.vectorstores import Chroma
 from langchain_ollama import OllamaEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
+# Define the directory containing the text file and the persistent directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_dir, "books", "odyssey.txt")
 persistent_directory = os.path.join(current_dir, "db", "chroma_db")
 
+# Check if the Chroma vector store already exists
 if not os.path.exists(persistent_directory):
     print("Persistent directory does not exist. Initializing vector store...")
 
+    # Ensure the file exists
     if not os.path.exists(file_path):
         raise FileNotFoundError(
             f"The file {file_path} does not exist. Please check the path."
         )
 
+    # Read the text content from the file
     loader = TextLoader(file_path, encoding="utf-8")
     documents = loader.load()
 
+    # Split the documents into chunks
     text_splitter = CharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=0
     )
     docs = text_splitter.split_documents(documents)
 
+    # Display information about the split documents
     print("\n--- Document Chunks Information ---")
     print(f"Number of document chunks: {len(docs)}")
     print(f"Sample chunk:\n{docs[0].page_content}\n")
@@ -41,6 +47,7 @@ if not os.path.exists(persistent_directory):
     #     model_name="sentence-transformers/all-MiniLM-L6-v2"
     # )
 
+    # Create embeddings using Hugging Face BGE model
     model_name = "BAAI/bge-small-en"
     model_kwargs = {"device": "cpu"}
     encode_kwargs = {"normalize_embeddings": True}
@@ -50,6 +57,7 @@ if not os.path.exists(persistent_directory):
     print("\n--- Finished creating embeddings ---")
 
     print("\n--- Creating vector store ---")
+    # Create the vector store and persist it automatically
     # Takes a long time with the local llama model for embeddings (2 hours I think). Using Hugging Face Embedding model goes much quicker.
     # Claude or OpenAI whould probably go much faster
     db = Chroma.from_documents(

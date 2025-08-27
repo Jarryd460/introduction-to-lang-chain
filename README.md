@@ -98,92 +98,19 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 
 ## 🎯 Prompt Templates
 
-### Basic Prompt Templates (`2_prompt_templates/1_prompt_template_basic.py`)
+### 1. Basic Prompt Templates (`2_prompt_templates/1_prompt_template_basic.py`)
 - Create and use simple prompt templates with placeholders
 - Work with multiple placeholders in a single template
 - Build structured prompts with system and human messages
 - Example: Generating jokes with dynamic topics and counts
 - Example: Creating multi-part prompts with different message types
 
-### Chat Model Integration (`2_prompt_templates/2_prompt_template_with_chat_model.py`)
+### 2. Chat Model Integration (`2_prompt_templates/2_prompt_template_with_chat_model.py`)
 - Integrate prompt templates with LangChain's chat models
 - Create dynamic, parameterized prompts for chat interactions
 - Build complex conversation flows with structured messages
 - Example: Story generation with customizable parameters
 - Example: Interactive Q&A with system context
-
-## 🔍 RAG (Retrieval-Augmented Generation)
-
-### Basic RAG Implementation (`4_rag/1a_rag_basics.py` and `4_rag/1b_rag_basics.py`)
-- Setting up a basic RAG pipeline with ChromaDB
-- Loading and processing text documents
-- Creating and persisting vector stores
-- Performing similarity searches with embeddings
-  - Supports both Ollama and Hugging Face embeddings
-  - Default configuration uses `BAAI/bge-small-en` for better performance
-  - Configurable model parameters including device and normalization
-- Integrating with LLMs for question answering
-
-### RAG with Metadata (`4_rag/2a_rag_basics_metadata.py` and `4_rag/2b_rag_basics_metadata.py`)
-- Enhancing documents with metadata
-- Filtering search results using metadata
-- Managing document sources and references
-- Advanced retrieval techniques
-
-### Text Splitting Deep Dive (`4_rag/3_rag_text_splitting_deep_dive.py`)
-- Comparing different text splitting strategies:
-  - Character-based splitting
-  - Sentence-based splitting
-  - Recursive character-based splitting
-  - Custom paragraph-based splitting
-- Evaluating chunk sizes and overlaps
-- Creating and querying multiple vector stores
-- Analyzing the impact of splitting on retrieval quality
-
-### Embedding Deep Dive (`4_rag/4_rag_embedding_deep_dive.py`)
-- Exploring different embedding models and configurations
-- Implementing Hugging Face embeddings with custom parameters
-- Comparing embedding performance and quality
-- Configuring model parameters for optimal results
-  - Device selection (CPU/GPU)
-  - Embedding normalization
-  - Batch processing options
-- Querying and evaluating embedding results
-
-### Retriever Deep Dive (`4_rag/5_rag_retriever_deep_dive.py`)
-- Exploring different retrieval strategies:
-  - Similarity search
-  - Max Marginal Relevance (MMR)
-  - Similarity score threshold
-- Configuring retrieval parameters:
-  - Number of results (k)
-  - Fetch size for MMR
-  - Lambda multiplier for diversity
-  - Score thresholds
-- Comparing retrieval quality across different methods
-- Practical examples of when to use each retrieval type
-
-### One-off Question Answering (`4_rag/6_rag_one_off_question.py`)
-- Implementing a complete Q&A pipeline
-- Combining retrieval with LLM generation
-- Using HuggingFace's DeepSeek model for response generation
-- Structuring system and human messages for better responses
-- Handling cases where information is not found
-- Configuring model parameters for optimal performance:
-  - Token limits
-  - Sampling behavior
-  - Repetition penalty
-
-### Conversational RAG (`4_rag/7_rag_conversational.py`)
-- Implementing a multi-turn conversational RAG system
-- Maintaining chat history for context-aware responses
-- Using history-aware retrieval with contextualized prompts
-- Configuring conversation chains with LangChain's building blocks:
-  - History-aware retriever
-  - Document processing chain
-  - Chat prompt templates
-- Managing conversation state and message history
-- Customizing system prompts for better conversation flow
 
 ## ⛓️ Chains
 
@@ -220,6 +147,115 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 - Handle different input types with appropriate processing
 - Example: Customer feedback classification and routing system
 - Shows how to build complex decision trees in LangChain
+
+## 🔍 RAG (Retrieval-Augmented Generation)
+
+### 1. Basic RAG Implementation (`4_rag/1a_rag_basics.py` and `4_rag/1b_rag_basics.py`)
+- **Document Processing**
+  - Loading and preprocessing text documents
+  - Chunking strategies for optimal retrieval
+  - Document metadata management
+- **Vector Store**
+  - Setting up ChromaDB for document storage
+  - Configuring persistent storage
+  - Managing document embeddings
+- **Embedding Models**
+  - Default: `BAAI/bge-small-en`
+  - Configurable device (CPU/GPU)
+  - Normalization options
+  - Batch processing support
+- **Query Pipeline**
+  - Similarity search implementation
+  - Result filtering and ranking
+  - Response generation
+
+### 2. RAG with Metadata (`4_rag/2a_rag_basics_metadata.py` and `4_rag/2b_rag_basics_metadata.py`)
+- **Metadata Integration**
+  - Document source tracking
+  - Custom metadata fields
+  - Metadata-based filtering
+- **Advanced Retrieval**
+  - Filtering by document properties
+  - Source attribution
+  - Result scoring with metadata
+- **Performance**
+  - Efficient metadata storage
+  - Optimized retrieval with filters
+  - Batch processing support
+
+### 3. Text Splitting Deep Dive (`4_rag/3_rag_text_splitting_deep_dive.py`)
+- **Splitting Strategies**
+  - Character-based (fixed size chunks)
+  - Sentence-aware splitting
+  - Token-based splitting
+  - Recursive character splitting
+  - Custom splitter implementation
+- **Analysis**
+  - Chunk size impact
+  - Overlap configuration
+  - Performance comparison
+  - Quality metrics
+
+### 4. Embedding Deep Dive (`4_rag/4_rag_embedding_deep_dive.py`)
+- **Model Configuration**
+  - Hugging Face model selection
+  - Device optimization (CPU/GPU)
+  - Normalization techniques
+  - Batch processing options
+- **Performance**
+  - Embedding generation
+  - Storage optimization
+  - Query performance
+  - Memory management
+
+### 5. Retriever Deep Dive (`4_rag/5_rag_retriever_deep_dive.py`)
+- **Search Strategies**
+  - Similarity search (top-k)
+  - Max Marginal Relevance (MMR)
+  - Score threshold filtering
+- **Parameters**
+  - Result count (k)
+  - MMR fetch size
+  - Diversity adjustment (lambda)
+  - Minimum score thresholds
+- **Use Cases**
+  - When to use each strategy
+  - Performance implications
+  - Quality vs diversity tradeoffs
+
+### 6. One-off Question Answering (`4_rag/6_rag_one_off_question.py`)
+- **Pipeline**
+  - Query processing
+  - Context retrieval
+  - Response generation
+- **Model**
+  - DeepSeek model integration
+  - Generation parameters
+  - Response formatting
+- **Features**
+  - Fallback handling
+  - Source attribution
+  - Confidence scoring
+
+### 7. Conversational RAG (`4_rag/7_rag_conversational.py`)
+- **Conversation Management**
+  - Multi-turn context handling
+  - Chat history persistence
+  - Context window management
+- **Advanced Retrieval**
+  - History-aware queries
+  - Contextual reformulation
+  - Dynamic retrieval adjustment
+- **Response Generation**
+  - Conversational flow
+  - Context integration
+  - Natural follow-up handling
+- Configuring conversation chains with LangChain's building blocks:
+  - History-aware retriever
+  - Document processing chain
+  - Chat prompt templates
+- Managing conversation state and message history
+- Customizing system prompts for better conversation flow
 
 ### Running Examples
 
