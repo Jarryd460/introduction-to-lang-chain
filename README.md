@@ -187,35 +187,39 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 
 ## ⛓️ Chains
 
-### Basic Chains (`3_chains/1_chains_basics.py`)
-- Creating sequential chains with the pipe operator (`|`)
-- Combining prompt templates with LLMs and output parsers
-- Building reusable processing pipelines
-- Example: Creating a joke generation chain with template and model
+### 1. Basic Chains (`3_chains/1_chains_basics.py`)
+- Create sequential chains using the pipe operator (`|`)
+- Combine prompt templates with LLMs and output parsers
+- Build reusable processing pipelines
+- Example: Joke generation with dynamic topics and counts
+- Demonstrates LangChain Expression Language (LCEL) fundamentals
 
-### Understanding Chains (`3_chains/2_chains_under_the_hood.py`)
-- Demonstrates the underlying mechanics of chains
-- Using `RunnableLambda` for custom operations
-- Building chains with `RunnableSequence`
-- Manual handling of prompt formatting and output parsing
+### 2. Understanding Chains (`3_chains/2_chains_under_the_hood.py`)
+- Explore the underlying mechanics of chains
+- Implement custom Runnable components
+- Manually create and connect chain steps
+- Understand how LCEL simplifies chain creation
 
-### Extended Chain Operations (`3_chains/3_chains_extended.py`)
-- Creating custom chain operations with type hints
-- Chaining multiple transformations
-- String manipulation within chains
-- Type-safe operations with `Runnable` and `RunnableLambda`
+### 3. Extended Chains (`3_chains/3_chains_extended.py`)
+- Add custom processing steps to chains
+- Chain multiple transformations together
+- Implement type-safe operations with RunnableLambda
+- Example: Text processing with uppercase conversion and word count
+- Shows how to extend chains with custom logic
 
-### 4. Parallel Chains (`3_chains/4_chains_parallel.py`)
-- Running multiple chains in parallel
-- Combining results from multiple chains
-- Error handling in parallel chain execution
-- Performance considerations for concurrent operations
+### 4. Parallel Processing (`3_chains/4_chains_parallel.py`)
+- Execute multiple chains in parallel
+- Combine and process results from parallel executions
+- Implement branching with RunnableParallel
+- Example: Product review analysis with simultaneous pros/cons evaluation
+- Demonstrates efficient parallel processing patterns
 
-### 5. Branching Chains (`3_chains/5_chains_branching.py`)
-- Implementing conditional logic in chains with `RunnableBranch`
-- Creating dynamic workflows based on input classification
-- Handling different response templates based on feedback sentiment
-- Example: Feedback classification and response generation pipeline
+### 5. Branching Logic (`3_chains/5_chains_branching.py`)
+- Implement conditional routing in chains
+- Create dynamic execution paths with RunnableBranch
+- Handle different input types with appropriate processing
+- Example: Customer feedback classification and routing system
+- Shows how to build complex decision trees in LangChain
 
 ### Running Examples
 
