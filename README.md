@@ -237,6 +237,25 @@ Each example is designed to be self-contained and demonstrates a specific aspect
   - Source attribution
   - Confidence scoring
 
+### 8. Web Scraping and PDF Processing (`4_rag/8_rag_web_scrape_basic.py`)
+- **Web Content Processing**
+  - Scraping and loading web pages
+  - Handling dynamic content
+  - Extracting and chunking text
+- **PDF Processing**
+  - Loading and parsing PDF documents
+  - Text extraction and chunking
+  - Handling document structure
+- **Vector Store Integration**
+  - Creating separate vector stores for different content types
+  - Configuring retrieval parameters
+  - Querying multiple data sources
+- **Features**
+  - Support for multiple document types
+  - Configurable chunking
+  - Source attribution
+  - Parallel processing of different content types
+
 ### 7. Conversational RAG (`4_rag/7_rag_conversational.py`)
 - **Conversation Management**
   - Multi-turn context handling
@@ -367,8 +386,10 @@ introduction-to-lang-chain/
 │   ├── 5_rag_retriever_deep_dive.py     # Comparing retrieval strategies
 │   ├── 6_rag_one_off_question.py        # Complete Q&A pipeline example
 │   ├── 7_rag_conversational.py          # Multi-turn conversational RAG system
-│   ├── books/                            # Sample text documents for RAG
-│   └── db/                               # Vector store database directory
+│   ├── 8_rag_web_scrape_basic.py        # Web scraping and PDF processing example
+│   ├── books/                           # Sample text documents for RAG
+│   ├── db/                              # Vector store database directory
+│   └── pdf/                             # Sample PDF documents for processing
 ├── .env                        # Environment variables (create this file)
 ├── .env.example                # Example environment variables template
 ├── poetry.lock                 # Poetry lock file (auto-generated)
