@@ -99,14 +99,18 @@ Each example is designed to be self-contained and demonstrates a specific aspect
 ## 🎯 Prompt Templates
 
 ### Basic Prompt Templates (`2_prompt_templates/1_prompt_template_basic.py`)
-- Creating simple prompt templates with placeholders
-- Working with multiple placeholders in templates
-- Building prompts with system and human message templates
+- Create and use simple prompt templates with placeholders
+- Work with multiple placeholders in a single template
+- Build structured prompts with system and human messages
+- Example: Generating jokes with dynamic topics and counts
+- Example: Creating multi-part prompts with different message types
 
 ### Chat Model Integration (`2_prompt_templates/2_prompt_template_with_chat_model.py`)
-- Integrating prompt templates with chat models
-- Creating dynamic prompts with variables
-- Building complex conversation flows with system and user messages
+- Integrate prompt templates with LangChain's chat models
+- Create dynamic, parameterized prompts for chat interactions
+- Build complex conversation flows with structured messages
+- Example: Story generation with customizable parameters
+- Example: Interactive Q&A with system context
 
 ## 🔍 RAG (Retrieval-Augmented Generation)
 
