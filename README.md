@@ -5,7 +5,7 @@ This repository serves as a comprehensive introduction to working with LangChain
 The examples support multiple model providers including:
 - **Ollama** (local LLMs)
 - **Anthropic** (Claude models)
-- **Hugging Face** (hosted models)
+- **[Hugging Face](https://huggingface.co/)** (hosted models)
 
 Each example is designed to be self-contained and demonstrates a specific aspect of working with LangChain's chat model interface.
 
@@ -357,6 +357,8 @@ python 1_chat_models/4_chat_model_conversation_with_user.py
 ## 📚 Additional Resources
 
 - [LangChain Crash Course](https://github.com/bhancockio/langchain-crash-course/tree/main/4_rag) - A comprehensive crash course on LangChain's RAG (Retrieval-Augmented Generation) implementation, including practical examples and best practices.
+- [LangChain Crash Course - YouTube](https://www.youtube.com/watch?v=yF9kGESAi3M) - Video tutorial covering LangChain's core concepts and RAG implementation with practical examples.
+- [LangSmith](https://smith.langchain.com/) - A platform for debugging, testing, and monitoring LLM applications
 
 ## 📁 Project Structure
 
