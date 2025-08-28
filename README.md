@@ -359,6 +359,7 @@ python 1_chat_models/4_chat_model_conversation_with_user.py
 - [LangChain Crash Course](https://github.com/bhancockio/langchain-crash-course/tree/main/4_rag) - A comprehensive crash course on LangChain's RAG (Retrieval-Augmented Generation) implementation, including practical examples and best practices.
 - [LangChain Crash Course - YouTube](https://www.youtube.com/watch?v=yF9kGESAi3M) - Video tutorial covering LangChain's core concepts and RAG implementation with practical examples.
 - [LangSmith](https://smith.langchain.com/) - A platform for debugging, testing, and monitoring LLM applications
+- [FAISS Vector Store](https://python.langchain.com/docs/integrations/vectorstores/faiss/) - Documentation for using FAISS (Facebook AI Similarity Search) as a vector store in LangChain
 
 ## 📁 Project Structure
 
