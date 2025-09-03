@@ -3,14 +3,13 @@ from pathlib import Path
 from utils import *
 
 def main():
-    file_name_1 = "family-loan-agreement-1.pdf"
     file_name_2 = "PublicWaterMassMailing.pdf"
 
     # Load .env into env variables
     Config()
 
-    root = Path.cwd().parent
-    pdf_dir = (root / "../data/raw").resolve()
+    root = Path.cwd()
+    pdf_dir = (root / "data").resolve()
 
     pdf_text_utils = PdfTextUtils(str(pdf_dir))
 
