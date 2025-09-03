@@ -1,12 +1,8 @@
-import cv2
 import numpy as np
 import pymupdf
 
-from enum import Enum
 from pathlib import Path
 from paddleocr import PaddleOCR
-
-from .image_preprocesing_utils import ImagePreprocessingUtils
 
 class PdfTextUtils:
     """Utility class for pdf text processing"""
@@ -21,37 +17,16 @@ class PdfTextUtils:
             raise ValueError(f"Path is not a directory: {pdf_dir}.")
 
         self._directory_path = directory_path
-        self._image_preprocess = ImagePreprocessingUtils()
         self._ocr = PaddleOCR(
             lang='en',
-            ocr_version="PP-OCRv5",
-
-            # Detection parameters - more aggressive text region detection
-            text_det_thresh=0.1,  # Lower threshold to detect more text regions (default: 0.3)
-            text_det_box_thresh=0.3,  # Lower box threshold for more sensitive detection (default: 0.6)
-            text_det_unclip_ratio=2.0,  # Larger unclip ratio to expand detected regions (default: 1.5)
-            text_det_limit_side_len=2560,  # Increase detection resolution (default: 960)
-            text_det_limit_type='max',  # Use max side length limit
-
-            # Recognition parameters - better accuracy
-            text_rec_score_thresh=0.5,
-
-            # Device/performance parameters
-            device = 'cpu',  # or 'gpu'
-            enable_mkldnn = True,  # Intel MKL-DNN acceleration
-            cpu_threads = 4,  # Number of processes
-
-            # Optional advanced parameters
-            precision='fp32',  # or 'fp16', 'int8'
-            use_tensorrt=False,  # TensorRT acceleration for GPU
-
-            # Disable unless needed
-            use_doc_orientation_classify=False,
-            use_doc_unwarping=True,
+            text_detection_model_name="PP-OCRv5_server_det",
+            text_recognition_model_name="PP-OCRv5_server_rec",
+            use_doc_orientation_classify=True,
+            use_doc_unwarping=False,
             use_textline_orientation=True
         )
 
-    def extract_text(self, file_name: str, min_confidence = 0.7) -> str:
+    def extract_text(self, file_name: str) -> str:
         file_path = self._directory_path / file_name
 
         if not file_path.exists():
@@ -68,14 +43,6 @@ class PdfTextUtils:
                     text, confidence = self._extract_text_from_ocr(page)
 
                     print(f"Page {page} confidence with normal execution: {confidence}")
-
-                    if confidence > min_confidence:
-                        page_content.append(text)
-                        continue
-
-                    text, confidence = self._extract_text_from_ocr(page, True)
-
-                    print(f"Page {page} confidence with adaptive thresholding: {confidence}")
 
                     page_content.append(text)
 
@@ -168,7 +135,7 @@ class PdfTextUtils:
         # If more than 200 small drawings, likely simulated text
         return small_drawing_count > 200
 
-    def _extract_text_from_ocr(self, page, preprocessing = False) -> tuple[str, float]:
+    def _extract_text_from_ocr(self, page) -> tuple[str, float]:
         pixmap = page.get_pixmap(
             # 4x magnification for better OCR
             matrix=pymupdf.Matrix(4, 4),
@@ -181,10 +148,12 @@ class PdfTextUtils:
                 .reshape(pixmap.height, pixmap.width, pixmap.n)
         )
 
-        if preprocessing:
-            img_array = self._image_preprocess.process_image_for_ocr(img_array)
-
         ocr_result = self._ocr.predict(img_array)
+
+        for res in ocr_result:
+            # res.print()
+            res.save_to_img("output")
+            # res.save_to_json("output")
 
         if not ocr_result or not ocr_result[0]:
             return "", 0.0

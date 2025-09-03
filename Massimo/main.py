@@ -13,7 +13,7 @@ def main():
 
     pdf_text_utils = PdfTextUtils(str(pdf_dir))
 
-    document = pdf_text_utils.extract_text(file_name_2, 0.8)
+    document = pdf_text_utils.extract_text(file_name_2)
 
     print(document)
 
