@@ -1,0 +1,10 @@
+python-dotenv
+pymupdf
+numpy
+paddlepaddle
+# paddlepaddle-gpu
+paddleocr
+opencv-python
+langchain
+langchain_community
+
